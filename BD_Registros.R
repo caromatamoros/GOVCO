@@ -35,13 +35,11 @@ excel <- excel[1:nrow(excel)-1,]
 datos_abiertos <- read.csv(file="20190619 1425 Plan_de_Integraci_n.csv", header=TRUE, sep=",")
 datos_abiertos <- datos_abiertos[complete.cases(datos_abiertos[ , 2]),]
 #Define la matriz de datos abiertos como la descargada directamente
+#datos_abiertos <- excel
 
-datos_abiertos <- excel
 #View(datos_abiertos)
 
-#?gsub
-
-#Crea la matriz de data no raw sobre la que se limplia la informaciÃ³n
+#Crea la matriz de data no "raw" sobre la que se limplia la información
 colnames(datos_abiertos)
 datos2 <- data.frame(matrix("", ncol = ncol(datos_abiertos), nrow = nrow(datos_abiertos)))
 colnames(datos2) <- colnames(datos_abiertos)
