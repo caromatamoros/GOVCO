@@ -1,7 +1,3 @@
-# autorización de vinculo de cuenta y de computador
-#rsconnect::setAccountInfo(name='caromatamoros', token='9B5C3B834BFA2AEF61F434DD17A66401', secret='jtZpDLap4H7ecqHCkUUqkp6nVmiy7zd+/ksPwVPz')
-#setwd("C:\\Users\\cmatamoros\\OneDrive - Ministerio de Tecnologías de la Información y las Comunicaciones\\Gov Co\\Datos Integración\\2019-06-25")
-
 #Inicializar
 rm(list=ls())
 gc()
@@ -63,29 +59,6 @@ for (i in 1:nrow(TotalesEstado)){
   }
 }
 
-# b <- 
-#   plot_ly(
-#   y = TotalesEstado[!TotalesEstado$Estado=="completo",]$Tipo,
-#   x = TotalesEstado[!TotalesEstado$Estado=="completo",]$Porcentaje,
-#   name = "Incompletos",
-#   type = "bar", orientation = "h",
-#   marker = list(color = "rgb(255, 0, 0)",
-#                 line = list(color = "rgb(20, 20, 20)",
-#                             width = 2))
-#   ) 
-# ### Grouped Bar Chart
-# b2 <- add_trace(b,
-#   y = TotalesEstado[TotalesEstado$Estado=="completo",]$Tipo,
-#   x = TotalesEstado[TotalesEstado$Estado=="completo",]$Porcentaje,
-#   name = "Completos",
-#   type = "bar", orientation = "h",
-#   marker = list(color = "rgb(195, 195, 195)",
-#                 line = list(color = "rgb(20, 20, 20)",
-#                             width = 2)))
-# ### Stacked Bar Chart 
-# b3 <- layout(b2, barmode = "stack")
-# b3
-  
 bar1 <- 
  plot_ly(TotalesEstado,
     y = TotalesEstado[!TotalesEstado$Estado=="completo",]$Tipo,
@@ -106,10 +79,9 @@ bar1 <-
     layout(barmode = "stack")
 bar1
 
-Sys.setenv("plotly_username"="caromatamoros")
-Sys.setenv("plotly_api_key"="T0hjslho0EGN9x2Hsud0")
-
-# httpRequestSocket.write('{"x":3,"y":1}\n')
+#Esto es de cada usuario, deben agregar su usuario y contraseña de uso de plotly
+Sys.setenv("plotly_username"="nombre de usuario")
+Sys.setenv("plotly_api_key"="contraseña")
 
 options(browser = 'false')
 chart_link <- api_create(bar1, filename="bar-stacked")
@@ -427,14 +399,3 @@ chart_link11 <- api_create(barFechasDetalle, filename="Acciones por Fecha Desagr
 chart_link11
 chart_link11$web_url
 
-
-
-ui <- dashboardPage(
-  dashboardHeader(),
-  dashboardSidebar(),
-  dashboardBody()
-)
-
-server <- function(input, output) { }
-
-shinyApp(ui, server)
