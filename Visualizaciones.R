@@ -341,7 +341,7 @@ for (i in 1:nrow(BaseFechas)){
       BaseFechas$Dominios_Integrar_a_GovCo[i] <- BaseFechas$TotalB[i]
     
     } else if(BaseFechas$Integración[i]=="Integrar al sitio oficial") { #Dominios_Integrar la sitio oficial
-      BaseFechas$Dominios_Integrar_a_GovCo[i] <- BaseFechas$TotalB[i]
+      BaseFechas$Dominios_Integrar_Integrar_SitioWeb[i] <- BaseFechas$TotalB[i]
     
     } else { #Dominios_Permanece
       BaseFechas$Dominios_Permanece[i] <- BaseFechas$TotalB[i]
